@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     // 무기 중복 교체 실행 방지
-    public static bool isChangeWeapon;
+    public static bool isChangeWeapon = false;
 
     // 현재 무기와 현재 무기의 애니메이션
     public static Transform currentWeapon;
@@ -53,7 +53,7 @@ public class WeaponManager : MonoBehaviour
         {
             gunDictionary.Add(guns[i].gunName, guns[i]);
         }
-        for (int i = 0;i < hands.Length; i++)
+        for (int i = 0; i < hands.Length; i++)
         {
             handDictionary.Add(hands[i].closeWeaponName, hands[i]);
         }
@@ -69,14 +69,14 @@ public class WeaponManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Alpha1))
-            StartCoroutine(ChangeWeaponCoroutine("HAND", "맨손"));
-        else if (Input.GetKeyUp(KeyCode.Alpha2))
-            StartCoroutine(ChangeWeaponCoroutine("GUN", "SubMachineGun1"));
-        else if (Input.GetKeyUp(KeyCode.Alpha3))
-            StartCoroutine(ChangeWeaponCoroutine("AXE", "Axe"));
-        else if (Input.GetKeyUp(KeyCode.Alpha4))
-            StartCoroutine(ChangeWeaponCoroutine("PICKAXE", "Pickaxe"));
+            if (Input.GetKeyUp(KeyCode.Alpha1))
+                StartCoroutine(ChangeWeaponCoroutine("HAND", "맨손"));
+            else if (Input.GetKeyUp(KeyCode.Alpha2))
+                StartCoroutine(ChangeWeaponCoroutine("GUN", "SubMachineGun1"));
+            else if (Input.GetKeyUp(KeyCode.Alpha3))
+                StartCoroutine(ChangeWeaponCoroutine("AXE", "Axe"));
+            else if (Input.GetKeyUp(KeyCode.Alpha4))
+                StartCoroutine(ChangeWeaponCoroutine("PICKAXE", "Pickaxe"));
     }
 
     public IEnumerator ChangeWeaponCoroutine(string _type, string _name)

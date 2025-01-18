@@ -9,7 +9,7 @@ public class AxeController : CloseWeaponController
 
     void Update()
     {
-        if (isAttack)
+        if (isActivate)
             TryAttack();
     }
 
