@@ -9,7 +9,7 @@ public class HandController : CloseWeaponController
 
     void Update()
     {
-        if (isAttack)
+        if (isActivate)
             TryAttack();
     }
 

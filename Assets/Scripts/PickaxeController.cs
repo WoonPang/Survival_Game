@@ -7,15 +7,9 @@ public class PickaxeController : CloseWeaponController
     // 활성화 여부
     public static bool isActivate = true;
 
-    private void Start()
-    {
-        WeaponManager.currentWeapon = currentCloseWeapon.GetComponent<Transform>();
-        WeaponManager.currentWeaponAnim = currentCloseWeapon.anim;
-    }
-
     void Update()
     {
-        if (isAttack)
+        if (isActivate)
             TryAttack();
     }
 
@@ -25,6 +19,10 @@ public class PickaxeController : CloseWeaponController
         {
             if (CheckObject())
             {
+                if (hitInfo.transform.tag == "Rock")
+                {
+                    hitInfo.transform.GetComponent<Rock>().Mining();
+                }
                 isSwing = false;
                 Debug.Log(hitInfo.transform.name);
             }

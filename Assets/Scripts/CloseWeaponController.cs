@@ -34,7 +34,6 @@ public abstract class CloseWeaponController : MonoBehaviour
 
         yield return new WaitForSeconds(currentCloseWeapon.attackDelayA);
         isSwing = true;
-
         // 공격 활성화 시점
         StartCoroutine(HitCoroutine());
 
@@ -51,10 +50,9 @@ public abstract class CloseWeaponController : MonoBehaviour
     protected bool CheckObject()
     {
         if (Physics.Raycast(transform.position, transform.forward, out hitInfo, currentCloseWeapon.range))
-        {
             return true;
-        }
-        return false;
+        else
+            return false;
     }
 
     // 완성 함수이지만 추가 편집한 함수
